@@ -51,7 +51,7 @@ When autonomous vehicles are deployed on public roads, they will encounter count
 
 为了保证skill片段之间连接光滑，规定：1) 决定生成skill的当前状态，是上一执行skill的末状态; 2) 考虑动力学约束 (加速度、曲率)，把规划的参数限制在合理的范围内。
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/formulation-16992740197201.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/fig3_motion_skill_generation.png)
 
 ### 2.2 Skill Parameter Recovery
 
@@ -63,7 +63,7 @@ When autonomous vehicles are deployed on public roads, they will encounter count
 
 采用序列二次规划 (sequential quadratic programming, SQP) 优化下式***θ***，使得**X** (由***θ***组成，可见2.1.3) 逼近**X**~d~
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/actor_pretraining.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/formulation-16992740197201.png)
 
 其中 *f*~s~ 指的是2.1的motion skill generation过程。
 
@@ -77,7 +77,7 @@ When autonomous vehicles are deployed on public roads, they will encounter count
 
 首先预训练actor π(***θ***|s) ，获得当前状态下对应的专家示范 (skill)先验。训练目标是将下式最大化：
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/objective_function.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/actor_pretraining.png)
 
 其中，(s, θ) 由专家示范 ***D***~θ~ 决定；π(***θ***|s) 的输入是当前状态s，输出skill参数***θ***的高斯分布 (Gaussian distribution)；*H*(**θ**) 指的是熵的正则化项；β指的是熵的权重。
 
@@ -105,7 +105,7 @@ R~overtaking~: 自车每超过一辆他车，将会得到数值为0.1的奖励�
 
 借用最大熵强化学习 (maximum-entropy RL) 的目标函数并稍加修改，得到下式：
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/fig3_motion_skill_generation.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/objective_function.png)
 
 其中第一项表示在一个长度为T的motion skill里累积的discounted return；*H*(π(***θ***|s)) 指的是熵项，α指的是温度参数（模拟退火）。
 
@@ -143,13 +143,13 @@ R~overtaking~: 自车每超过一辆他车，将会得到数值为0.1的奖励�
 
 #### 3.2.1 Comparison Analysis
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/ablation_study-16993464494121.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/comparison_with_baselines.png)
 
 #### 3.2.2 Ablation Analysis
 
 分别对skill长度T和expert prior进行消融分析
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/comparison_with_baselines.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/ablation_study-16993464494121.png)
 
 ### 3.3 Visualization
 
@@ -160,8 +160,8 @@ R~overtaking~: 自车每超过一辆他车，将会得到数值为0.1的奖励�
 ### 4.1 Innovation
 
 1. 用参数定义motion skill；
-1. 把专家示范（先验）从控制空间转换到skill空间；
-2. 强调了actor和critic的双初始化的重要性。
+2. 把专家示范（先验）从控制空间转换到skill空间；
+3. 强调了actor和critic的双初始化的重要性。
 
 ### 4.2 Limitation & Future Work
 
