@@ -169,7 +169,4 @@ R~overtaking~: 自车每超过一辆他车，将会得到数值为0.1的奖励�
 1. 仅考虑motion skill的长度T (time window/ horizon) 固定的情况；
 1. 自车运动轨迹有不“类人”的迹象（not human-like）——或许可考虑在2.1.3加入航向角变化频率的约束。
 
-https://github.com/andylijx/picGo/blob/main/alg1vs2.jpg
-
-
 
