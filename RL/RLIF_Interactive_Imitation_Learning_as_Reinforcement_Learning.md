@@ -2,8 +2,7 @@
 
 > Summarized & reorganized by Jingxiao Li
 >
-> Last update: 23.12.12
->
+> Last update: 23.12.20
 
 | Publisher                | arXiv                                                        |
 | :----------------------- | :----------------------------------------------------------- |
@@ -54,7 +53,7 @@ Although reinforcement learning methods offer a powerful framework for automatic
 
 标红部分体现两种算法的主要差异。
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/def_a_4.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/alg1vs2.jpg)
 
 #### 3.1.2 Practical Implementation
 
@@ -70,7 +69,7 @@ Although reinforcement learning methods offer a powerful framework for automatic
 
 在实验中，作者考虑30%, 50%, 及85%的干预率（干预率=干预下的timestep数与总timestep数之比），定义i为专家干预瞬时的特定timestep，k为专家干预瞬时后的接管过程的timestep数。在任意非干预timestep t，不同概率的随机均匀干预的定义如下。
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/eq5_1.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/def_a_4.png)
 
 #### 3.2.2 Value-Based Intervention
 
@@ -80,11 +79,11 @@ Value-Based Intervention 假定：当在专家动作和机器人动作之间存�
 
 δ表示干预专家的信心水平：δ越小，专家越倾向于干预，即使是对一些稍微次优的机器人动作。作者将此模型如下式规范化。
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/eq_a_2-17023022435321.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/eq5_1.png)
 
 在实际中，作者发现下式的一个相对阈值比较 (relative threshold comparison)也是有效的。
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/alg1vs2.jpg)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/eq_a_2-17023022435321.png)
 
 实验中，作者将β设置为接近1的值，如0.95；将α设置为接近1的值，如0.97。
 
@@ -94,7 +93,7 @@ Value-Based Intervention 假定：当在专家动作和机器人动作之间存�
 
 ![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/fig2.png)
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/table2_offline_datasets-17023092359452.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/fig5.png)
 
 机器人接受视觉反馈，作者采用ImageNet预训练的EfficientNet-B3^[2]^作为视觉backbone进行快速策略学习。
 
@@ -112,7 +111,9 @@ Value-Based Intervention 假定：当在专家动作和机器人动作之间存�
 
 下表列出了用于下采样的特定数据集和各个任务的初始数据集的大小。
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/table3_ablation_results.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/table2_offline_datasets-17023092359452.png)
+
+
 
 #### 4.1.2 Expert Training
 
@@ -128,11 +129,11 @@ Value-Based Intervention 假定：当在专家动作和机器人动作之间存�
 
 ### 4.4 Ablation Results
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/main_theoretical_results-17023108045703.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/table3_ablation_results.png)
 
 ## 5 Theoretical Analysis
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/fig5.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/main_theoretical_results-17023108045703.png)
 
 ## 6 Discussion
 
