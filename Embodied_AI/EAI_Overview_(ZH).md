@@ -2,7 +2,9 @@
 
 注：本篇整理主要基于文章 [具身智能 | CCF专家谈术语]( https://mp.weixin.qq.com/s/lA9q6-hCIBldaEbWYHvkRQ)
 
-整理人：李京晓  Jingxiao Li    日期：24.02.23
+整理人：李京晓  Jingxiao Li
+
+日期：24.02.23
 
 
 
