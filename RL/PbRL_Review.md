@@ -82,7 +82,7 @@
 
 **专业性问题：从专业的反馈中学习**
 
-NeurIPS'22 [[Paper](https://arxiv.org/pdf/2211.06519.pdf)]
+[NeurIPS'22] [[Paper](https://arxiv.org/pdf/2211.06519.pdf)]
 
 ### 摘要
 
@@ -110,7 +110,7 @@ NeurIPS'22 [[Paper](https://arxiv.org/pdf/2211.06519.pdf)]
 
 **利用未标记数据反馈有效的基于人类偏好的强化学习**
 
-AAAI Workshop'23 [[Paper](https://arxiv.org/pdf/2302.08738.pdf)]
+[AAAI Workshop'23] [[Paper](https://arxiv.org/pdf/2302.08738.pdf)]
 
 ### 研究问题
 
@@ -130,7 +130,7 @@ AAAI Workshop'23 [[Paper](https://arxiv.org/pdf/2302.08738.pdf)]
 
 **如何在 RL 中高效查询人类反馈信息**
 
-ICML Workshop'23 [[Paper](https://openreview.net/pdf?id=kW6siW4EB6)]
+[ICML Workshop'23] [[Paper](https://openreview.net/pdf?id=kW6siW4EB6)]
 
 ### 研究问题
 
@@ -162,7 +162,7 @@ ICML Workshop'23 [[Paper](https://openreview.net/pdf?id=kW6siW4EB6)]
 
 **Preference Transformer: 使用Transformer为 RL 建立人类偏好模型**
 
-ICLR'23 [[Paper](https://openreview.net/pdf?id=Peot1SFDX0)]
+[ICLR'23] [[Paper](https://openreview.net/pdf?id=Peot1SFDX0)]
 
 > 论文《Preference Transformer: Modeling Human Preferences Using Transformers for RL》提出了一种名为“Preference Transformer”的神经网络架构，用于基于偏好的强化学习 (RL)，提供了一种使用人类偏好训练智能体的框架。然而，基于偏好的 RL 存在缩放困难，因为它需要大量的人类反馈来学习与人类意图一致的奖励函数。与先前的方法不同，假设人类判断基于 Markovian 奖励，这些奖励对决策的贡献相等，作者引入了一种基于非 Markovian 奖励加权求和的新偏好模型。然后，作者使用Transformer架构设计了所提出的偏好模型，其中包含因果自注意力层和双向自注意力层。作者演示了 Preference Transformer 可以使用真实人类偏好解决各种控制任务，而先前的方法无法工作。他们还表明，Preference Transformer 可以诱导出一个明确定义的奖励，并通过自动捕获人类决策中的时间依赖关系来关注轨迹中的关键事件。代码可在项目网站上找到：https://sites.google.com/view/preference-transformer。
 
