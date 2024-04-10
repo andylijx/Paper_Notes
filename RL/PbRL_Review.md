@@ -6,6 +6,18 @@
 
 [TOC]
 
+**研究问题**：如何利用人类引导完成奖励函数难以定义的任务
+
+**适用场景**：
+
+* 人类只能识别所需的行为，但不一定能够提供演示
+
+* 允许无领域知识的非专家用户进行操作
+
+**核心思路**：根据人类偏好拟合奖励函数，接入RL算法优化当前预测的奖励函数
+
+
+
 ## 01 Deep Reinforcement Learning from Human Preferences
 
 **从人类偏好中进行深度强化学习**
@@ -71,12 +83,8 @@
 ### 创新点
 
 1. 证明了无监督预训练和off-policy能够显著提升采样和反馈效率
-
-2. PEBBLE方法在复杂运动任务和机器人任务中优于基于优先偏好的基准RL
-
-3. PEBBLE方法对于典型奖励难以设计的行为能够有效学习
-
-4. 避免了reward exploitation，与直接利用奖励（an engineered reward）训练的agent相比，行为更理想
+2. 在复杂运动任务和机器人任务中优于基于优先偏好的基准RL
+3. 避免了reward exploitation，与直接利用奖励（an engineered reward）训练的agent相比，行为更理想
 
 ### 不足
 
