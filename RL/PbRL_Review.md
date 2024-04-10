@@ -72,11 +72,11 @@
 
 3. PEBBLE方法对于典型奖励难以设计的行为能够有效学习
 
-4. 避免了reward exploitation，与直接利用奖励（an engineered reward）训练的agent相比，行为更理想（所谓exploitation，是指我们不去尝试新的东西，就采取已知的经验可以得到很大奖励的行为，容易局限智能体的未来探索）
+4. 避免了reward exploitation，与直接利用奖励（an engineered reward）训练的agent相比，行为更理想
 
 ### 不足
 
-人类专家的水平参差不齐，这一点文章中没有体现出来
+人类专家的水平参差不齐，这一点文章中没有体现
 
 ## 03 The Expertise Problem: Learning from Specialized Feedback
 
@@ -86,7 +86,7 @@
 
 ### 摘要
 
-来自人类反馈的强化学习( Reinforcement Learning from Human feedback，RLHF )是**训练智能体执行难以确定任务**的强大技术。然而，人类的反馈分布可能具备很大的噪声（方差），特别是当人类教师缺乏相关知识或经验时。不同教师的专业知识水平不同，同一教师对同一任务的不同组成部分可能具有**不同的专业知识水平**。因此，从多个教师那里学习的RLHF算法面临一个**专业性问题**：给定一段反馈的可靠性既取决于它来自哪位教师，又取决于该教师对任务相关的组成部分的专业程度。**现有的最先进的RLHF算法假设所有的评价来自相同的分布，**模糊了这种人与人之间和人本身存在的差异，并阻止了解释或者利用这种专业知识的差异。我们对这个问题建模。将其作为现有RLHF基准的扩展来实现，**评估了最先进的RLHF算法的性能**，并探索了改进查询和专家选择的技术。我们的主要贡献是展示和描述了所谓专业性问题，并提供了一个开源的实现来测试未来的解决方案。
+来自人类反馈的强化学习( Reinforcement Learning from Human feedback，RLHF )是**训练智能体执行难以确定任务**的强大技术。然而，人类的反馈分布可能具备很大的噪声（方差），特别是当人类教师缺乏相关知识或经验时。不同教师的专业知识水平不同，同一教师对同一任务的不同组成部分可能具有**不同的专业知识水平**。因此，从多个教师那里学习的RLHF算法面临一个**专业性问题**：给定一段反馈的可靠性既取决于它来自哪位教师，又取决于该教师对任务相关的组成部分的专业程度。**现有的最先进的RLHF算法假设所有的评价来自相同的分布**，模糊了这种人与人之间和人本身存在的差异，并阻止了解释或者利用这种专业知识的差异。我们对这个问题建模。将其作为现有RLHF基准的扩展来实现，**评估了最先进的RLHF算法的性能**，并探索了改进查询和专家选择的技术。我们的主要贡献是展示和描述了所谓专业性问题，并提供了一个开源的实现来测试未来的解决方案。
 
 ### 研究问题
 
@@ -106,7 +106,7 @@
 
 ![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/EP_b.png)
 
-## 04 Exploiting Unlabeled Data for Feedback Efficient Human Preference based
+## 04 Exploiting Unlabeled Data for Feedback Efficient Human Preference based Reinforcement Learning
 
 **利用未标记数据反馈有效的基于人类偏好的强化学习**
 
@@ -130,7 +130,7 @@
 
 **如何在 RL 中高效查询人类反馈信息**
 
-[ICML Workshop'23] [[Paper](https://openreview.net/pdf?id=kW6siW4EB6)]
+ICML Workshop'23 [[Paper](https://openreview.net/pdf?id=kW6siW4EB6)]
 
 ### 研究问题
 
@@ -162,7 +162,7 @@
 
 **Preference Transformer: 使用Transformer为 RL 建立人类偏好模型**
 
-[ICLR'23] [[Paper](https://openreview.net/pdf?id=Peot1SFDX0)]
+ICLR'23 [[Paper](https://openreview.net/pdf?id=Peot1SFDX0)]
 
 > 论文《Preference Transformer: Modeling Human Preferences Using Transformers for RL》提出了一种名为“Preference Transformer”的神经网络架构，用于基于偏好的强化学习 (RL)，提供了一种使用人类偏好训练智能体的框架。然而，基于偏好的 RL 存在缩放困难，因为它需要大量的人类反馈来学习与人类意图一致的奖励函数。与先前的方法不同，假设人类判断基于 Markovian 奖励，这些奖励对决策的贡献相等，作者引入了一种基于非 Markovian 奖励加权求和的新偏好模型。然后，作者使用Transformer架构设计了所提出的偏好模型，其中包含因果自注意力层和双向自注意力层。作者演示了 Preference Transformer 可以使用真实人类偏好解决各种控制任务，而先前的方法无法工作。他们还表明，Preference Transformer 可以诱导出一个明确定义的奖励，并通过自动捕获人类决策中的时间依赖关系来关注轨迹中的关键事件。代码可在项目网站上找到：https://sites.google.com/view/preference-transformer。
 
@@ -174,7 +174,7 @@
 
 提出了Preference Transformer (PT)，一个基于非马尔可夫奖励加权和的人类偏好建模的神经网络结构。
 
-PT 以轨迹段作为输入，允许提取任务相关的历史信息。通过叠加双向和因果自注意力（self-attention)）层，PT 产生非马尔可夫奖励和重要性权重作为输出。作者用其定义偏好模型，发现 PT 可以产生一个更好形状的（better-shaped）奖励，并注意到来自人类生成偏好的关键事件。
+PT 以轨迹段作为输入，允许提取任务相关的历史信息。通过叠加双向和因果自注意力（self-attention）层，PT 产生非马尔可夫奖励和重要性权重作为输出。作者用其定义偏好模型，发现 PT 可以产生一个更好形状的（better-shaped）奖励，并注意到来自人类生成偏好的关键事件。
 
 其中需要注意奖励在Linear层就已经进行了预测，后续输出是对轨迹（trajectory）奖励的加权。
 
@@ -186,4 +186,4 @@ PT 以轨迹段作为输入，允许提取任务相关的历史信息。通过�
 
 ### 创新点
 
-为PbRL引入了基于Casual Transformer的框架，考虑了一种基于非马尔科夫奖励加权求和的新偏好模型，用于捕捉人类对更为复杂的任务的偏好（解决非马尔科夫性）
+为PbRL引入了Transformer框架，考虑了一种基于非马尔科夫奖励加权求和的新偏好模型，用于捕捉人类对更为复杂的任务的偏好（解决非马尔科夫性）
