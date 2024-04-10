@@ -18,8 +18,10 @@
 
 ### 方法
 
+<img src="https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/DRLHPref_overview.png" style="zoom: 67%;" />
+
 1. 与传统强化学习算法一样，利用策略与环境进行交互，并利用交互数据优化策略，此时还需要为奖励函数的学习打包轨迹数据
-2. 将这些轨迹数据进行成对地采样并发送给人类，让人类对这些成对的数据进行偏好数据的标注
+2. 将这些轨迹数据进行**成对**地采样并发送给人类，让人类对这些成对的数据进行偏好数据的标注
 3. 利用人类标注好的数据，构造如下损失函数，训练奖励回报
 
 ![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/DRLHP.PNG)
@@ -62,6 +64,8 @@
 
 训练过程中，由于奖励函数不断更新可能是不平稳的（non-stationary），本文中利用了一种off-policy算法，通过重用在经验缓冲区的过往经验提供样本高效的学习。并且在奖励模型更新之后，都将重新标记智能体的过往经验，这种方法稳定了学习过程
 
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/PEBBLE_overview.png)
+
 ![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/PEPPLE_PC.png)
 
 ### 创新点
@@ -76,9 +80,23 @@
 
 ### 不足
 
-人类专家的水平参差不齐，这一点文章中没有体现
+人类专家的水平参差不齐，这一点文章中没有体现，作者在之后的工作中对此进行了改进
 
-## 03 The Expertise Problem: Learning from Specialized Feedback
+## 03 B-Pref: Benchmarking Preference-Based Reinforcement Learning
+
+[NeurIPS'21 Dataset Track] [[Paper](https://arxiv.org/pdf/2111.03026.pdf)]
+
+<img src="https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/PbRL_illustration.png" style="zoom: 80%;" />
+
+环境部分主要沿用了PEBBLE的9个环境，与众不同的是，这篇文章对**human feedback中的非理性人类行为进行了建模，探讨了这些情况对实验结果的影响**
+
+其中非理性人类行为包括：随机（stoc），错误（mistake），跳过（skip），均等（equal），短视（myopic）
+
+<img src="../Pictures/B-Pref_irrationality.png" style="zoom: 67%;" />
+
+在多个环境的实验结果表明，mistake和stoc会对实验结果产生较大的负面结果，而其他类型的问题随问题不同而产生不同的效果
+
+## 04 The Expertise Problem: Learning from Specialized Feedback
 
 **专业性问题：从专业的反馈中学习**
 
@@ -106,7 +124,7 @@
 
 ![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/EP_b.png)
 
-## 04 Exploiting Unlabeled Data for Feedback Efficient Human Preference based Reinforcement Learning
+## 05 Exploiting Unlabeled Data for Feedback Efficient Human Preference based Reinforcement Learning
 
 **利用未标记数据反馈有效的基于人类偏好的强化学习**
 
@@ -126,7 +144,7 @@
 
 提出两个损失函数，提高反馈效率
 
-## 05 How to Query Human Feedback Efficiently in RL
+## 06 How to Query Human Feedback Efficiently in RL
 
 **如何在 RL 中高效查询人类反馈信息**
 
@@ -158,7 +176,7 @@
 
 2. 文中使用的轨迹收集过程与奖励无关，这可能会限制其在某些RL场景中的适用性
 
-## 06 Preference Transformer: Modeling Human Preferences Using Transformers for RL
+## 07 Preference Transformer: Modeling Human Preferences Using Transformers for RL
 
 **Preference Transformer: 使用Transformer为 RL 建立人类偏好模型**
 
@@ -168,7 +186,9 @@
 
 ### 研究问题
 
-对基于非马尔科夫性奖励的人类偏好建模
+1. 之前的工作均将奖励函数建模成Markovian的（**仅仅依赖于当前state和action**），而有各种任务的奖励函数是Non-Markovian的，尤其是在preference的研究中，提供给人类的video是有先后顺序的
+
+2. 人类总使用**具有相同权重的奖励总和**来评估轨迹的质量，而在轨迹内进行置信分配（credit assignment）是必要的
 
 ### 方法
 
@@ -180,9 +200,9 @@ PT 以轨迹段作为输入，允许提取任务相关的历史信息。通过�
 
 在实验部分，作者设计了一系列的评估指标，用于确定 PT 确实是学到了中间的关键步骤奖励，也就是确实进行了置信分配。
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/PT_fig1.png)
+<img src="https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/PT_fig1.png" style="zoom:80%;" />
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/PT_fig2.png)
+<img src="https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/PT_fig2.png" style="zoom:80%;" />
 
 ### 创新点
 
