@@ -96,13 +96,9 @@
 
 <img src="https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/PbRL_illustration.png" style="zoom: 80%;" />
 
-环境部分主要沿用了PEBBLE的9个环境，与众不同的是，这篇文章对**human feedback中的非理性人类行为进行了建模，探讨了这些情况对实验结果的影响**
-
-其中非理性人类行为包括：随机（stoc），错误（mistake），跳过（skip），均等（equal），短视（myopic）
+PEBBLE团队续作，对非理性人类反馈进行了建模，包括：随机（stoc），错误（mistake），跳过（skip），均等（equal），短视（myopic），其中mistake和stoc会对实验结果产生较大的负面结果
 
 <img src="https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/B-Pref_irrationality.png" style="zoom:67%;" />
-
-在多个环境的实验结果表明，mistake和stoc会对实验结果产生较大的负面结果，而其他类型的问题随问题不同而产生不同的效果
 
 ## 04 The Expertise Problem: Learning from Specialized Feedback
 
