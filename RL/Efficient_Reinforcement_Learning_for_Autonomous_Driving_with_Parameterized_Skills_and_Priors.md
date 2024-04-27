@@ -121,7 +121,7 @@ R~overtaking~: 自车每超过一辆他车，将会得到数值为0.1的奖励�
 
 #### 2.5.2 Pseudo Code
 
-![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/pseudo_code-16993468565502.png)
+![](https://cdn.jsdelivr.net/gh/andylijx/picGo@main/img/pseudo_code.png)
 
 ## 3 Experiments
 
